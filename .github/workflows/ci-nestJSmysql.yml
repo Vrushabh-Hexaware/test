@@ -33,15 +33,6 @@ jobs:
           docker cp ${{ env.CONTAINER_NAME }}:/app/publish/ ./
           docker cp ${{ env.CONTAINER_NAME }}:/testresults/ ./
           docker rm ${{ env.CONTAINER_NAME }}
-      - name: Copy coverage report
-        run: cp testresults/coverage/coverage.cobertura.xml coverage.cobertura.xml
-      - name: publish code coverage
-        uses: irongut/CodeCoverageSummary@v1.2.0
-        with:
-          filename: coverage.cobertura.xml
-          format: markdown
-          output: both
-          badge: true
       - name: Publish test results
         uses: dorny/test-reporter@v1
         with:
