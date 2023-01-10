@@ -28,5 +28,3 @@ jobs:
           docker push ${{ secrets.CR_LOGIN_SERVER }}/${{ env.REPOSITORY_NAME }}:pipelinetest
       - name: unittest
         note: yet to update
-      - name: codecoverage
-        note: yet to update
